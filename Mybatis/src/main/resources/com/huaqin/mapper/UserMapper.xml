@@ -19,9 +19,9 @@
       DELETE FROM USER WHERE id=#{id};
     </delete>
 
-    <select id="findByName" resultType="com.huaqin.domain.User" parameterType="string">
-        select * from user where username like #{username};
-    </select>
+   <select id="findByName" resultType="com.huaqin.domain.User" parameterType="string">
+       SELECT * FROM USER WHERE username LIKE #{username};
+   </select>
 
     <select id="findByCount" resultType="int">
        SELECT COUNT(*) FROM USER;

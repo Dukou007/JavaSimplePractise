@@ -108,21 +108,15 @@ public class UserTest {
     }
 
     @Test
-    public void testFindByName() {
-        List <User> users = mapper.findByName("ja");
-        for (User user : users) {
-            if (user.getUsername() == null) {
-                System.out.println("wrong");
-            } else {
-                System.out.println(user);
-            }
+    public void testFindByName() throws Exception {
+        List<User> list = mapper.findByName("%王%");
+        for (User user : list) {
+            System.out.println(user);
         }
-
     }
 
-
     @Test
-    public void testFindByCount(){
+    public void testFindByCount() {
         int n = mapper.findByCount();
         System.out.println(n);
     }
