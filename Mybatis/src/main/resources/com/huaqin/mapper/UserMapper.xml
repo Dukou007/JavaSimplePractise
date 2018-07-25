@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huaqin.mapper.UserMapper">
+    <select id="findAll" resultType="com.huaqin.domain.User">
+        select * from user;
+    </select>
+    <select id="findById" resultType="com.huaqin.domain.User" parameterType="int">
+        select * from user where id=#{id};
+    </select>
+    <insert id="insert" parameterType="com.huaqin.domain.User">
+        INSERT  INTO USER (username,birthday,sex,address) VALUES (#{username},#{birthday},#{sex},#{address});
+    </insert>
+    <update id="update" parameterType="com.huaqin.domain.User">
+      UPDATE USER SET username=#{username} WHERE id=#{id};
+    </update>
+    <delete id="delete" parameterType="int">
+      DELETE FROM USER WHERE id=#{id};
+    </delete>
+
+    <select id="findByName" resultType="com.huaqin.domain.User" parameterType="string">
+        select * from user where username like #{username};
+    </select>
+
+    <select id="findByCount" resultType="int">
+       SELECT COUNT(*) FROM USER;
+    </select>
+</mapper>
