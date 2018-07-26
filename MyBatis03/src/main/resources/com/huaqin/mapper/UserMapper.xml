@@ -2,18 +2,18 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.huaqin.usermapper.UserMapper">
+<mapper namespace="com.huaqin.mapper.UserMapper">
 
     <select id="findByUserName" resultMap="UserMap" parameterType="user">
-        SELECT * FROM USER WHERE username=#{userName};
+        SELECT * FROM USER WHERE username = #{username};
     </select>
-    <select id="findByQueryVo" resultMap="UserMap" parameterType="QueryVo">
-        SELECT * FROM USER WHERE  username=#{user.userName};
-    </select>
+     <select id="findByQueryVo" resultMap="UserMap" parameterType="QueryVo">
+         SELECT * FROM USER WHERE  username=#{user.username};
+     </select>
 
     <resultMap id="UserMap" type="user">
         <id column="id" property="userId"/>
-        <result column="username" property="userName"/>
+        <result column="username" property="username"/>
         <result column="birthday" property="userBirthday"/>
         <result column="sex" property="userSex"/>
         <result column="address" property="userAddress"/>

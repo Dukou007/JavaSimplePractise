@@ -7,6 +7,7 @@
     <groupId>com.huaqin</groupId>
     <artifactId>MyBatis03</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -28,31 +29,6 @@
             <artifactId>log4j</artifactId>
             <version>1.2.12</version>
         </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.5</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-    <build>
 
-        <resources>
-
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>jdbc.properties</include>
-                    <include>SqlMapConfig.xml</include>
-                    <include>com.huaqin.usermapper.UserMapper.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
-    </build>
 </project>
