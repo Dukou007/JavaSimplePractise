@@ -7,10 +7,48 @@
     <select id="findByUserName" resultMap="UserMap" parameterType="user">
         SELECT * FROM USER WHERE username = #{username};
     </select>
-     <select id="findByQueryVo" resultMap="UserMap" parameterType="QueryVo">
+    <select id="findByQueryVo" resultMap="UserMap" parameterType="QueryVo">
          SELECT * FROM USER WHERE  username=#{user.username};
      </select>
 
+    <select id="findByWhere" resultMap="UserMap" parameterType="QueryVo">
+        SELECT * FROM USER
+        <where>
+            <if test="user.username!=null and user.username !=''">
+                AND username=#{user.username}
+            </if>
+            <if test="user.userSex!=null and user.userSex!=''">
+                AND sex=#{user.userSex}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByIds" resultMap="UserMap" parameterType="QueryVo">
+        SELECT * FROM USER
+        <where>
+            <if test="ids!=null and ids.size>0">
+                <foreach collection="ids" item="id" open="id IN (" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <sql id="findAllUser">
+    SELECT * FROM  USER
+    </sql>
+
+    <select id="findByWhere" resultMap="UserMap" parameterType="QueryVo">
+      <include refid="findAllUser"/>
+        <where>
+            <if test="user.username!=null and user.username!=''">
+              AND username=#{username}
+            </if>
+            <if test="user.userSex!=null and user.userSex!=''">
+                    AND sex=#{userSex}
+            </if>
+        </where>
+    </select>
     <resultMap id="UserMap" type="user">
         <id column="id" property="userId"/>
         <result column="username" property="username"/>

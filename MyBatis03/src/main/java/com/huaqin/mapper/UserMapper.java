@@ -11,7 +11,9 @@ public interface UserMapper {
 
     public List<User> findByQueryVo(QueryVo vo);
 
+    public List<User> findByWhere(QueryVo vo);
 
+    public List<User> findByIds(QueryVo vo);
 
-
+    public List<User> findAllUser(QueryVo vo);
 }

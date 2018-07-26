@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserTest {
@@ -57,6 +58,47 @@ public class UserTest {
         vo.setUser(u);
         List<User> vos = mapper.findByQueryVo(vo);
         for (User user : vos) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void testFindByWhere(){
+        QueryVo vo = new QueryVo();
+        User u = new User();
+        u.setUsername("老王");
+        u.setUserSex("男");
+        vo.setUser(u);
+        List<User> users = mapper.findByWhere(vo);
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void testFindByIds(){
+        QueryVo vo = new QueryVo();
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(41);
+        list.add(42);
+        list.add(43);
+        list.add(44);
+        list.add(45);
+        vo.setIds(list);
+        List<User> ids = mapper.findByIds(vo);
+        for (User id : ids) {
+            System.out.println(id);
+        }
+    }
+
+    @Test
+    public void testFindAllUser(){
+        QueryVo vo = new QueryVo();
+        User u = new User();
+        vo.setUser(u);
+
+        List<User> users = mapper.findAllUser(vo);
+        for (User user : users) {
             System.out.println(user);
         }
     }
