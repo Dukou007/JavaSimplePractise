@@ -5,7 +5,7 @@
 <configuration>
     <properties resource="jdbc.properties"/>
     <typeAliases>
-        <package name="com.huaqin"/>
+        <package name="com.huaqin.domain"/>
     </typeAliases>
     <environments default="mysql">
         <environment id="mysql">
@@ -18,8 +18,8 @@
             </dataSource>
         </environment>
     </environments>
-<mappers>
-    <package name="com.huaqin"/>
-</mappers>
+    <mappers>
+        <package name="com.huaqin.dao"/>
+    </mappers>
 
 </configuration>
